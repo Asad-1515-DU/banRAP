@@ -1,0 +1,810 @@
+/* ===== CSS Variables ===== */
+:root {
+  --primary-blue: #0066cc;
+  --sky-blue: #00a8ff;
+  --light-blue: #e0f4ff;
+  --white: #ffffff;
+  --light-gray: #f5f7fa;
+  --dark-gray: #2c3e50;
+  --medium-gray: #95a5a6;
+  --border-color: #e0e8f0;
+  --dark-text: #1a1a1a;
+  --light-text: #666666;
+  --success-color: #2ed573;
+  --warning-color: #ffa502;
+  --error-color: #ff4757;
+  --shadow-light: 0 2px 8px rgba(0, 102, 204, 0.1);
+  --shadow-medium: 0 4px 16px rgba(0, 102, 204, 0.15);
+  --shadow-heavy: 0 8px 24px rgba(0, 102, 204, 0.2);
+}
+
+.admin-dashboard {
+  background: var(--light-gray);
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.admin-header {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.admin-header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.admin-header p {
+  font-size: 16px;
+  color: var(--light-text);
+}
+
+/* ===== Tab Navigation ===== */
+.admin-tabs {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  display: flex;
+  gap: 15px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  color: var(--light-text);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -20px;
+  position: relative;
+  bottom: -20px;
+}
+
+.tab-btn:hover {
+  color: var(--primary-blue);
+}
+
+.tab-btn.active {
+  color: var(--primary-blue);
+  border-bottom-color: var(--sky-blue);
+}
+
+/* ===== Admin Section ===== */
+.admin-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+.section-card h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 30px;
+  letter-spacing: -0.3px;
+}
+
+/* ===== Navigation Form ===== */
+.nav-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+}
+
+/* ===== Buttons ===== */
+.btn-submit,
+.btn-approve,
+.btn-reject,
+.btn-confirm,
+.btn-cancel,
+.btn-suspend,
+.btn-unsuspend,
+.btn-add-analyst {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+  color: var(--white);
+  box-shadow: var(--shadow-medium);
+  grid-column: 1 / -1;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-approve {
+  background: linear-gradient(135deg, var(--success-color) 0%, #1abc9c 100%);
+  color: var(--white);
+}
+
+.btn-approve:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+}
+
+.btn-reject {
+  background: transparent;
+  border: 2px solid var(--error-color);
+  color: var(--error-color);
+}
+
+.btn-reject:hover {
+  background: rgba(255, 71, 87, 0.1);
+}
+
+.btn-confirm {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+  color: var(--white);
+}
+
+.btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 2px solid var(--medium-gray);
+  color: var(--light-text);
+}
+
+.btn-cancel:hover {
+  border-color: var(--light-text);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-suspend {
+  background: linear-gradient(135deg, var(--warning-color) 0%, #ff7675 100%);
+  color: var(--white);
+}
+
+.btn-suspend:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 165, 2, 0.3);
+}
+
+.btn-unsuspend {
+  background: linear-gradient(135deg, var(--success-color) 0%, #1abc9c 100%);
+  color: var(--white);
+}
+
+.btn-unsuspend:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+}
+
+.btn-add-analyst {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+  color: var(--white);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-add-analyst:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-heavy);
+}
+
+/* ===== Alerts Container ===== */
+.alerts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.alert {
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-info {
+  background: rgba(0, 168, 255, 0.1);
+  color: var(--primary-blue);
+  border-left: 4px solid var(--sky-blue);
+}
+
+.alert-time {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ===== Labeling Review ===== */
+.submissions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.submission-item {
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.submission-item.status-pending {
+  border-left: 5px solid var(--warning-color);
+}
+
+.submission-item.status-approved {
+  border-left: 5px solid var(--success-color);
+  background: rgba(46, 213, 115, 0.05);
+}
+
+.submission-item.status-rejected {
+  border-left: 5px solid var(--error-color);
+  background: rgba(255, 71, 87, 0.05);
+}
+
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.submission-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 8px;
+}
+
+.analyst-info,
+.segment-info,
+.date-info {
+  font-size: 13px;
+  color: var(--light-text);
+  margin: 4px 0;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: rgba(255, 165, 2, 0.2);
+  color: var(--warning-color);
+}
+
+.status-approved {
+  background: rgba(46, 213, 115, 0.2);
+  color: var(--success-color);
+}
+
+.status-rejected {
+  background: rgba(255, 71, 87, 0.2);
+  color: var(--error-color);
+}
+
+.submission-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.submission-actions button {
+  flex: 1;
+}
+
+.review-comment {
+  background: rgba(0, 102, 204, 0.05);
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--dark-text);
+  margin-top: 15px;
+  border-left: 4px solid var(--sky-blue);
+}
+
+.review-form {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid var(--border-color);
+}
+
+.review-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.form-buttons button {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* ===== Analyst Management ===== */
+.analysts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 40px 12px 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--light-text);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.search-clear:hover {
+  color: var(--primary-blue);
+  background: rgba(0, 102, 204, 0.1);
+}
+
+.add-analyst-form {
+  background: rgba(0, 102, 204, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 2px solid var(--border-color);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.add-analyst-form .form-buttons {
+  margin-top: 20px;
+}
+
+.add-analyst-form .form-buttons button {
+  flex: 1;
+  min-width: 150px;
+}
+
+.analysts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.analyst-card {
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.analyst-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.analyst-card.status-active {
+  border-top: 4px solid var(--success-color);
+}
+
+.analyst-card.status-suspended {
+  border-top: 4px solid var(--error-color);
+  opacity: 0.85;
+}
+
+.analyst-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.analyst-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 6px;
+}
+
+.analyst-info .email,
+.analyst-info .joining-date,
+.analyst-info .labelings {
+  font-size: 13px;
+  color: var(--light-text);
+  margin: 4px 0;
+}
+
+.analyst-status-active {
+  background: rgba(46, 213, 115, 0.2);
+  color: var(--success-color);
+}
+
+.analyst-status-suspended {
+  background: rgba(255, 71, 87, 0.2);
+  color: var(--error-color);
+}
+
+.analyst-actions {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.analyst-actions button {
+  flex: 1;
+}
+
+.suspension-info {
+  background: rgba(255, 165, 2, 0.1);
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--warning-color);
+  margin-top: 15px;
+  border-left: 4px solid var(--warning-color);
+}
+
+.suspension-form {
+  background: rgba(255, 71, 87, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 2px solid rgba(255, 71, 87, 0.2);
+}
+
+.suspension-form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.suspension-form .form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.suspension-form .form-buttons button {
+  flex: 1;
+}
+
+.admin-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 18px;
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .admin-section {
+    padding: 20px;
+  }
+
+  .section-card {
+    padding: 30px;
+  }
+
+  .admin-tabs {
+    gap: 10px;
+  }
+
+  .tab-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .analysts-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 20px 15px;
+  }
+
+  .admin-header h1 {
+    font-size: 32px;
+  }
+
+  .section-card {
+    padding: 20px;
+  }
+
+  .section-card h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .admin-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0;
+    bottom: 0;
+    border-bottom-color: var(--border-color);
+  }
+
+  .tab-btn.active {
+    border-bottom-color: var(--sky-blue);
+    border-left: 4px solid var(--sky-blue);
+    padding-left: 20px;
+  }
+
+  .submission-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .submission-actions {
+    flex-direction: column;
+  }
+
+  .analysts-list {
+    grid-template-columns: 1fr;
+  }
+
+  .analysts-header {
+    flex-direction: column;
+  }
+
+  .btn-add-analyst {
+    width: 100%;
+  }
+
+  .form-buttons button {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  .search-input {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding: 15px 10px;
+  }
+
+  .admin-header h1 {
+    font-size: 24px;
+  }
+
+  .admin-header p {
+    font-size: 14px;
+  }
+
+  .section-card {
+    padding: 15px;
+  }
+
+  .section-card h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .nav-form {
+    gap: 15px;
+  }
+
+  .btn-submit,
+  .btn-approve,
+  .btn-reject,
+  .btn-confirm,
+  .btn-cancel,
+  .btn-suspend,
+  .btn-unsuspend {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .submission-item {
+    padding: 15px;
+  }
+
+  .submission-info h3 {
+    font-size: 16px;
+  }
+
+  .analyst-info,
+  .segment-info,
+  .date-info {
+    font-size: 12px;
+  }
+
+  .status-badge {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .submission-actions {
+    gap: 8px;
+  }
+
+  .submission-actions button {
+    flex: 1;
+  }
+
+  .analyst-card {
+    padding: 15px;
+  }
+
+  .analyst-info h3 {
+    font-size: 16px;
+  }
+
+  .analyst-info .email,
+  .analyst-info .joining-date,
+  .analyst-info .labelings {
+    font-size: 12px;
+  }
+
+  .analyst-actions button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .add-analyst-form .form-buttons {
+    flex-direction: column;
+  }
+
+  .add-analyst-form .form-buttons button {
+    width: 100%;
+  }
+
+  .search-input {
+    max-width: 100%;
+    padding: 10px 35px 10px 12px;
+    font-size: 13px;
+  }
+
+  .search-clear {
+    right: 8px;
+    font-size: 14px;
+  }
+}
