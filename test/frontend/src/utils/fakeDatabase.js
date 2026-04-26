@@ -30,15 +30,6 @@ const fakeDatabase = {
       role: 'analyst',
       createdAt: '2025-01-02',
     },
-    {
-      id: 3,
-      firstName: 'Admin',
-      lastName: 'BDRap',
-      email: 'admin@bdrap.com',
-      password: 'Admin@789', // Password: Admin@789
-      role: 'admin',
-      createdAt: '2025-01-03',
-    },
   ],
   otpStorage: {}, // Temporary storage for OTPs
   passwordResetTokens: {}, // Temporary storage for reset tokens
